@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; frame-src https://www.google.com;" />
+  <title>Bagni Maurizio Sassonia – Il tuo Beach Village a Fano (PU)</title>
+  <meta name="description" content="Stabilimento balneare e beach village Bagni Maurizio Sassonia a Fano (PU): piscina con vasca idromassaggio, spiaggia attrezzata, campi sportivi, aree gazebo, bar e serate al tramonto." />
+  <style>
+    :root {
+      --sand: #FAF8F5;
+      --pool-bg: #EEF7FB;
+      --sunset-night: #0B192C;
+      --adriatic: #0A365C;
+      --sunset: #EA580C;
+      --sunset-hover: #C2410C;
+      --turquoise: #0284C7;
+      --ink-muted: #475569;
+      --hairline: rgba(10, 54, 92, 0.12);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--sand);
+      color: var(--adriatic);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { line-height: 1.15; margin: 0; text-wrap: balance; }
+    h1, .serif { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(250, 248, 245, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .nav-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      height: 68px;
+    }
+    .brand { font-family: "Iowan Old Style", Georgia, serif; font-size: 1.25rem; font-weight: 700; white-space: nowrap; }
+    .nav-links { display: flex; gap: 24px; font-size: 0.9375rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--sunset); text-decoration: underline; text-underline-offset: 6px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 0.9375rem;
+      border: 1px solid transparent; cursor: pointer; white-space: nowrap; transition: background .18s ease, transform .18s ease;
+    }
+    .btn-primary { background: var(--sunset); color: #fff; }
+    .btn-primary:hover { background: var(--sunset-hover); }
+    .btn-secondary { background: #fff; color: var(--adriatic); border-color: var(--hairline); }
+    .btn-secondary:hover { background: var(--pool-bg); }
+    .btn-dark { background: var(--adriatic); color: #fff; }
+    .section { padding: 72px 0; }
+    .section-pool { background: var(--pool-bg); }
+    .section-night { background: var(--sunset-night); color: #F8FAFC; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: stretch; }
+    .meta-line { font-size: 0.875rem; font-weight: 600; color: var(--turquoise); letter-spacing: 0.01em; margin-bottom: 14px; }
+    h1 { font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 18px; }
+    .lead { font-size: 1.125rem; color: var(--ink-muted); max-width: 58ch; margin-bottom: 28px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-media {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--hairline); min-height: 360px; background: #DCEEF7;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+    .kpi-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--hairline);
+    }
+    .kpi-label { font-size: 0.8125rem; color: var(--ink-muted); }
+    .kpi-value { font-size: 1.125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .card {
+      background: #fff; border: 1px solid var(--hairline); border-radius: var(--radius); overflow: hidden;
+    }
+    .card-pad { padding: 24px; }
+    .gallery-img-wrap { aspect-ratio: 16/10; background: #DDECF5; position: relative; overflow: hidden; }
+    .gallery-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .fallback-box {
+      display: none; position: absolute; inset: 0; padding: 24px;
+      flex-direction: column; justify-content: flex-end;
+      background: linear-gradient(135deg, #0A365C 0%, #0284C7 65%, #EA580C 100%);
+      color: #fff;
+    }
+    .form-box {
+      background: #fff; border: 1px solid var(--hairline); border-radius: var(--radius);
+      padding: 28px; margin-top: 28px;
+    }
+    .option-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+    .choice-btn {
+      text-align: left; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--hairline);
+      background: var(--sand); color: var(--adriatic); font-weight: 600; cursor: pointer;
+    }
+    .choice-btn.active { background: var(--adriatic); color: #fff; border-color: var(--adriatic); }
+    .pills-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .input {
+      width: 100%; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--hairline);
+      font-size: 1rem; font-family: inherit; color: var(--adriatic); background: #fff;
+    }
+    .map-shell {
+      border: 1px solid var(--hairline); border-radius: var(--radius); overflow: hidden;
+      background: var(--pool-bg); min-height: 320px; display: flex; align-items: center; justify-content: center;
+      padding: 24px; text-align: center;
+    }
+    footer { background: var(--sunset-night); color: #CBD5E1; padding: 48px 0; font-size: 0.9rem; }
+    dialog { border: 1px solid var(--hairline); border-radius: var(--radius); max-width: 640px; padding: 28px; color: var(--adriatic); }
+    dialog::backdrop { background: rgba(11, 25, 44, 0.65); }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-4, .grid-3, .kpi-strip, .option-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <a href="#top" class="brand">Bagni Maurizio</a>
+      <nav class="nav-links" aria-label="Menu principale">
+        <a href="#galleria">Galleria</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#prenota">Prenota</a>
+        <a href="#contatti">Dove siamo</a>
+      </nav>
+      <a href="#prenota" class="btn btn-primary">Prenota ora</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="meta-line">FANO (PU) · VIALE ADRIATICO SASSONIA · APERTI TUTTI I GIORNI 08:00 – 20:00</p>
+            <h1>Bagni Maurizio Sassonia – Il tuo Beach Village a Fano.</h1>
+            <p class="lead">Piscina con vasca idromassaggio, spiaggia attrezzata, campi sportivi, aree gazebo, bar e serate al tramonto a pochi metri dal centro storico di Fano.</p>
+            <div class="cta-row">
+              <a href="#prenota" class="btn btn-primary">Prenota Ombrellone o Gazebo</a>
+              <a href="#servizi" class="btn btn-secondary">Scopri Piscina &amp; Servizi</a>
+              <a href="https://wa.me/393401032875" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Chiama / WhatsApp (340 103 2875)</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="img/panoramica.jpg?v=1" alt="Vista panoramica Bagni Maurizio Sassonia Fano con piscina e spiaggia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="fallback-box">
+              <strong>Bagni Maurizio Sassonia</strong>
+              <span>Vista panoramica Beach Village, piscina e spiaggia · Fano (PU)</span>
+            </div>
+          </div>
+        </div>
+        <div class="kpi-strip">
+          <div><div class="kpi-label">Orario continuo</div><div class="kpi-value">08:00 – 20:00</div></div>
+          <div><div class="kpi-label">Piscina &amp; Relax</div><div class="kpi-value">Idromassaggio &amp; Acquagym</div></div>
+          <div><div class="kpi-label">Sport &amp; Famiglie</div><div class="kpi-value">Campi Beach &amp; Baby Park</div></div>
+          <div><div class="kpi-label">Accessibilità</div><div class="kpi-value">Totale + Sedia Mare</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galleria" class="section section-pool">
+      <div class="container">
+        <h2 class="serif" style="font-size:2rem;">Il Beach Village in quattro scorci reali</h2>
+        <p style="color:var(--ink-muted);margin-top:8px;">Dalla piscina con idromassaggio fino al chiringuito sulla spiaggia di ciottoli della Sassonia.</p>
+        <div class="grid-4">
+          <article class="card">
+            <div class="gallery-img-wrap">
+              <img src="img/panoramica.jpg?v=1" alt="Vista Panoramica &amp; Beach Village Bagni Maurizio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="fallback-box"><strong>Vista Panoramica &amp; Beach Village</strong><span>Lungomare della Sassonia · Fano</span></div>
+            </div>
+            <div class="card-pad">
+              <h3>Vista Panoramica &amp; Beach Village</h3>
+              <p style="color:var(--ink-muted);margin:8px 0 0;">Ampia struttura attrezzata sul lungomare della Sassonia di Fano.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="gallery-img-wrap">
+              <img src="img/piscina.jpg?v=1" alt="Piscina &amp; Vasca Idromassaggio Bagni Maurizio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="fallback-box"><strong>Piscina &amp; Vasca Idromassaggio</strong><span>Adulti, bambini, acquagym e zone ombra</span></div>
+            </div>
+            <div class="card-pad">
+              <h3>Piscina &amp; Vasca Idromassaggio</h3>
+              <p style="color:var(--ink-muted);margin:8px 0 0;">Piscina per adulti e bambini con idromassaggio, acquagym e zone ombra.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="gallery-img-wrap">
+              <img src="img/spiaggia.jpg?v=1" alt="Spiaggia Attrezzata &amp; Relax Bagni Maurizio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="fallback-box"><strong>Spiaggia Attrezzata &amp; Relax</strong><span>Ombrelloni, lettini e gazebo sulla Sassonia</span></div>
+            </div>
+            <div class="card-pad">
+              <h3>Spiaggia Attrezzata &amp; Relax</h3>
+              <p style="color:var(--ink-muted);margin:8px 0 0;">Ombrelloni, lettini, sdraio e gazebo riservati sulla spiaggia di ciottoli.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="gallery-img-wrap">
+              <img src="img/tramonto.jpg?v=1" alt="Tramonti &amp; Serate al Chiringuito Bagni Maurizio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="fallback-box"><strong>Tramonti &amp; Serate al Chiringuito</strong><span>Aperitivi vista mare, DJ set e musica</span></div>
+            </div>
+            <div class="card-pad">
+              <h3>Tramonti &amp; Serate al Chiringuito</h3>
+              <p style="color:var(--ink-muted);margin:8px 0 0;">Aperitivi al tramonto, DJ set, serate a tema e musica vista mare.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servizi" class="section">
+      <div class="container">
+        <h2 class="serif" style="font-size:2rem;">Tutti i Servizi &amp; Accessibilità</h2>
+        <div class="grid-3">
+          <div class="card card-pad"><h3>🏊 Ampia Piscina &amp; Vasca Idromassaggio</h3><p style="color:var(--ink-muted);">Acquagym, acquazumba, piscina bambini e zone ombra a bordo vasca.</p></div>
+          <div class="card card-pad"><h3>🏖️ Ombrelloni, Lettini, Sdraio &amp; Gazebo</h3><p style="color:var(--ink-muted);">Ampie postazioni sulla spiaggia di ciottoli, area riservata e noleggio canoe.</p></div>
+          <div class="card card-pad"><h3>🏐 Campi Sportivi &amp; Animazione</h3><p style="color:var(--ink-muted);">Beach volley, beach tennis, foot volley, ping-pong, Baby Park attrezzato e fasciatoio bebè.</p></div>
+          <div class="card card-pad"><h3>🍹 Bar, Stuzzicheria &amp; Chiringuito</h3><p style="color:var(--ink-muted);">Colazioni, pranzi veloci, aperitivi al tramonto e serate estive vista mare.</p></div>
+          <div class="card card-pad"><h3>♿ Accessibilità Totale</h3><p style="color:var(--ink-muted);">Ingresso e parcheggio accessibili in sedia a rotelle, bagno con doccia calda per disabili e sedia per accesso in mare.</p></div>
+          <div class="card card-pad"><h3>🚲 Comfort Extra &amp; Pagamenti</h3><p style="color:var(--ink-muted);">Servizio biciclette gratuito, Wi-Fi, docce calde/fredde, cabine, pagamenti con carte di credito/debito e NFC.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prenota" class="section section-pool">
+      <div class="container">
+        <h2 class="serif" style="font-size:2rem;">Configuratore Prenotazione Rapida su WhatsApp</h2>
+        <p style="color:var(--ink-muted);margin-top:8px;">Prepara la tua richiesta in 3 passaggi: il messaggio viene compilato sul tuo dispositivo e inviato direttamente su WhatsApp.</p>
+        <form id="bookingForm" class="form-box">
+          <div style="margin-bottom:20px;">
+            <strong>1. Cosa vuoi prenotare:</strong>
+            <div class="option-grid" id="bookingTypes">
+              <button type="button" class="choice-btn active" data-val="🏖️ Ombrellone + 2 Lettini">🏖️ Ombrellone + 2 Lettini</button>
+              <button type="button" class="choice-btn" data-val="⛺ Gazebo / Area Ombra">⛺ Gazebo / Area Ombra</button>
+              <button type="button" class="choice-btn" data-val="🏊 Giornata Piscina & Spiaggia">🏊 Giornata Piscina &amp; Spiaggia</button>
+              <button type="button" class="choice-btn" data-val="🍹 Aperitivo / Tavolo Serata">🍹 Aperitivo / Tavolo Serata</button>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:20px;">
+            <div>
+              <label for="bookDate"><strong>2. Data:</strong></label>
+              <input id="bookDate" type="date" class="input" style="margin-top:8px;" required />
+            </div>
+            <div>
+              <strong>Numero persone:</strong>
+              <div class="pills-row" id="guestCounts">
+                <button type="button" class="choice-btn" data-val="1">1</button>
+                <button type="button" class="choice-btn active" data-val="2">2</button>
+                <button type="button" class="choice-btn" data-val="3">3</button>
+                <button type="button" class="choice-btn" data-val="4">4</button>
+                <button type="button" class="choice-btn" data-val="5+">5+</button>
+              </div>
+            </div>
+            <div>
+              <label for="zonePref"><strong>Preferenza zona:</strong></label>
+              <select id="zonePref" class="input" style="margin-top:8px;">
+                <option>Prima / Seconda fila</option>
+                <option>Zona Piscina</option>
+                <option>Zona Gazebo</option>
+                <option>Tramonto / Chiringuito</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:16px;">
+            <div>
+              <label for="guestName"><strong>3. Nome e Cognome:</strong></label>
+              <input id="guestName" type="text" class="input" placeholder="Es. Marco Rossi" style="margin-top:8px;" required />
+            </div>
+            <div>
+              <label for="guestNotes"><strong>Note facoltative:</strong></label>
+              <input id="guestNotes" type="text" class="input" placeholder="Es. vicino al Baby Park / esigenza accessibilità" style="margin-top:8px;" />
+            </div>
+          </div>
+
+          <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.9rem;margin-bottom:20px;cursor:pointer;">
+            <input id="privacyCheck" type="checkbox" required style="margin-top:4px;" />
+            <span>Ho letto l'<button type="button" id="openPrivacyInline" style="background:none;border:none;color:var(--turquoise);text-decoration:underline;cursor:pointer;padding:0;font:inherit;">Informativa Privacy GDPR</button>: i dati vengono usati solo localmente per preparare il messaggio WhatsApp.</span>
+          </label>
+
+          <div class="cta-row">
+            <button type="submit" class="btn btn-primary">📲 Invia Richiesta su WhatsApp (340 103 2875)</button>
+            <a href="tel:+390721828419" class="btn btn-secondary">Chiama Fisso 0721 828419</a>
+          </div>
+          <p id="formFeedback" style="margin-top:12px;font-weight:600;color:var(--sunset);display:none;"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contatti" class="section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h2 class="serif" style="font-size:2rem;margin-bottom:16px;">Dove Siamo &amp; Contatti</h2>
+            <p><strong>Indirizzo:</strong> Viale Adriatico Sassonia – 61032 Fano (PU)</p>
+            <p><strong>Telefono Fisso:</strong> <a href="tel:+390721828419">0721 828419</a></p>
+            <p><strong>Cellulari / WhatsApp:</strong> <a href="https://wa.me/393401032875" target="_blank" rel="noopener noreferrer">340 103 2875</a> · <a href="tel:+393389789122">338 978 9122</a></p>
+            <p><strong>Email:</strong> <a href="mailto:infobagnimaurizio@gmail.com">infobagnimaurizio@gmail.com</a></p>
+            <p><strong>Social:</strong> Instagram <a href="https://www.instagram.com/bagni_maurizio/" target="_blank" rel="noopener noreferrer" style="color:var(--turquoise);text-decoration:underline;">@bagni_maurizio</a> · Facebook Bagni Maurizio</p>
+            <div class="cta-row" style="margin-top:20px;">
+              <a href="https://www.google.com/maps/search/?api=1&query=Bagni+Maurizio+Viale+Adriatico+Sassonia+Fano" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Apri su Google Maps</a>
+            </div>
+          </div>
+          <div class="map-shell" id="mapShell">
+            <div>
+              <p style="margin-top:0;font-weight:600;">Mappa interattiva (caricamento al clic per tutela della privacy)</p>
+              <p style="font-size:0.9rem;color:var(--ink-muted);">Viale Adriatico Sassonia – 61032 Fano (PU)</p>
+              <button type="button" id="loadMapBtn" class="btn btn-primary">Carica Mappa Google</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;">
+      <div>
+        <strong style="color:#fff;">Bagni Maurizio Sassonia</strong> · Viale Adriatico Sassonia – 61032 Fano (PU)
+      </div>
+      <div style="display:flex;gap:16px;">
+        <button type="button" id="openPrivacyFooter" style="background:none;border:none;color:#CBD5E1;text-decoration:underline;cursor:pointer;font:inherit;">Privacy &amp; Cookie GDPR</button>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="privacyDialog">
+    <h3 class="serif" style="font-size:1.5rem;margin-bottom:12px;">Informativa Privacy GDPR</h3>
+    <p>Questo sito non installa cookie di profilazione né strumenti di tracciamento di terze parti. I dati inseriti nel configuratore prenotazione (nome, data, preferenze) restano esclusivamente sul tuo dispositivo per comporre il messaggio da inviare tramite WhatsApp a Bagni Maurizio Sassonia (infobagnimaurizio@gmail.com).</p>
+    <p>La mappa di Google viene caricata solo su tua esplicita richiesta al clic.</p>
+    <button type="button" id="closePrivacy" class="btn btn-dark">Chiudi</button>
+  </dialog>
+
+  <script>
+    (function () {
+      var selectedType = '🏖️ Ombrellone + 2 Lettini';
+      var selectedGuests = '2';
+      var dateInput = document.getElementById('bookDate');
+      if (dateInput) {
+        dateInput.value = new Date().toISOString().split('T')[0];
+      }
+
+      function wireGroup(containerId, onSelect) {
+        var box = document.getElementById(containerId);
+        if (!box) return;
+        box.addEventListener('click', function (e) {
+          var btn = e.target.closest('button[data-val]');
+          if (!btn) return;
+          box.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          onSelect(btn.getAttribute('data-val'));
+        });
+      }
+
+      wireGroup('bookingTypes', function (v) { selectedType = v; });
+      wireGroup('guestCounts', function (v) { selectedGuests = v; });
+
+      var form = document.getElementById('bookingForm');
+      var feedback = document.getElementById('formFeedback');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name = document.getElementById('guestName').value.trim();
+          var date = document.getElementById('bookDate').value;
+          var pref = document.getElementById('zonePref').value;
+          var notes = document.getElementById('guestNotes').value.trim();
+          var consent = document.getElementById('privacyCheck').checked;
+          if (!name || !date || !consent) {
+            feedback.textContent = 'Compila nome, data e accetta l’informativa privacy.';
+            feedback.style.display = 'block';
+            return;
+          }
+          feedback.style.display = 'none';
+          var text = 'Ciao Bagni Maurizio Sassonia! Vorrei richiedere disponibilità:\n' +
+            '• Soluzione: ' + selectedType + '\n' +
+            '• Data: ' + date + '\n' +
+            '• Persone: ' + selectedGuests + '\n' +
+            '• Preferenza: ' + pref + '\n' +
+            '• Nome: ' + name + (notes ? '\n• Note: ' + notes : '');
+          var url = 'https://wa.me/393401032875?text=' + encodeURIComponent(text);
+          var link = document.createElement('a');
+          link.href = url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+      }
+
+      var mapBtn = document.getElementById('loadMapBtn');
+      var mapShell = document.getElementById('mapShell');
+      if (mapBtn && mapShell) {
+        mapBtn.addEventListener('click', function () {
+          mapShell.style.padding = '0';
+          mapShell.innerHTML = '<iframe title="Mappa Bagni Maurizio Sassonia Fano" src="https://www.google.com/maps?q=Bagni+Maurizio+Viale+Adriatico+Sassonia+61032+Fano+PU&output=embed" width="100%" height="360" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+        });
+      }
+
+      var dlg = document.getElementById('privacyDialog');
+      ['openPrivacyInline', 'openPrivacyFooter'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el && dlg) el.addEventListener('click', function () { dlg.showModal(); });
+      });
+      var closeBtn = document.getElementById('closePrivacy');
+      if (closeBtn && dlg) closeBtn.addEventListener('click', function () { dlg.close(); });
+    })();
+  </script>
+</body>
+</html>
